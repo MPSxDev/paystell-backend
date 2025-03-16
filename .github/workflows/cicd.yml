@@ -52,9 +52,9 @@ jobs:
       - name: Run Tests in Docker
         run: |
           docker exec \
-            -m 4g \
             paystell-backend \
-            npm test -- \
+            node --max-old-space-size=4096 \
+            node_modules/.bin/jest \
             --maxWorkers=2 \
             --detectOpenHandles \
             --forceExit \
