@@ -56,8 +56,7 @@ jobs:
             npm test -- \
             --maxWorkers=2 \
             --detectOpenHandles \
-            --forceExit \
-            --runInBand
+            --forceExit
 
       - name: Stop and Remove Docker Containers
         run: docker compose down
