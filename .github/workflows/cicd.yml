@@ -53,8 +53,7 @@ jobs:
         run: |
           docker exec \
             paystell-backend \
-            node --max-old-space-size=4096 \
-            node_modules/.bin/jest \
+            npm test -- \
             --maxWorkers=2 \
             --detectOpenHandles \
             --forceExit \
