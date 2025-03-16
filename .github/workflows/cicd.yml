@@ -50,7 +50,15 @@ jobs:
         run: docker compose up -d
 
       - name: Run Tests in Docker
-        run: docker exec paystell-backend npm test -- --maxWorkers=2
+        run: |
+          docker exec \
+            -m 4g \
+            paystell-backend \
+            npm test -- \
+            --maxWorkers=2 \
+            --detectOpenHandles \
+            --forceExit \
+            --runInBand
 
       - name: Stop and Remove Docker Containers
         run: docker compose down

@@ -2,6 +2,12 @@ services:
   backend:
     build: .
     container_name: paystell-backend
+    deploy:
+      resources:
+        limits:
+          memory: 4g
+        reservations:
+          memory: 512m
     ports:
       - "3000:3000"
     env_file: .env.local
